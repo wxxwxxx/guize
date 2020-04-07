@@ -19,7 +19,7 @@ function getLatestVersion(params) {
 }
 
 function updateScript(version) {
-    let url = 'https://raw.githubusercontent.com/Fndroid/jsbox_script/master/Rules-lhie1/.output/规则.box' + '?t=' + new Date().getTime()
+    let url = 'https://raw.githubusercontent.com/wxxwxxx/guize/master/.output/%E8%A7%84%E5%88%99.zip' + '?t=' + new Date().getTime()
     const scriptName = $addin.current.name
     let downloadBox = $http.download({
         url: url

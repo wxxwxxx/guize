@@ -1470,7 +1470,7 @@ function linkHandler(url, params) {
       servers.shadowsocks.push(item)
     } else if (/^https?:\/\//.test(item)) {
       servers.online.push(item)
-    } else if (/[\S\s]+=[\s]*(custom|ss|http|https|socks5|socks5-tls|external)/.test(item)) {
+    } else if (/[\S\s]+=[\s]*(custom|ss|http|https|socks5|socks5-tls|external|vmess|snell)/.test(item)) {
       servers.surge.push(item)
     } else if (/^vmess:\/\//.test(item)) {
       servers.vmess.push(item)
@@ -2377,14 +2377,14 @@ function makeConf(params) {
   try {
     let pu = {
       prototype: "https://raw.githubusercontent.com/lhie1/Rules/master/Surge/Prototype.conf",
-      apple: 'https://raw.githubusercontent.com/lhie1/Rules/master/Auto/Apple.conf',
+        apple: 'https://raw.githubusercontent.com/lhie1/Rules/master/Surge/Surge%203/Provider/Apple.list',
       direct: 'https://raw.githubusercontent.com/lhie1/Rules/master/Auto/DIRECT.conf',
       proxy: 'https://raw.githubusercontent.com/lhie1/Rules/master/Auto/PROXY.conf',
       reject: 'https://raw.githubusercontent.com/lhie1/Rules/master/Auto/REJECT.conf',
       testflight: 'https://raw.githubusercontent.com/lhie1/Rules/master/Surge/TestFlight.conf',
       host: 'https://raw.githubusercontent.com/lhie1/Rules/master/Auto/HOST.conf',
       urlrewrite: 'https://raw.githubusercontent.com/lhie1/Rules/master/Auto/URL%20Rewrite.conf',
-      urlreject: 'https://raw.githubusercontent.com/lhie1/Rules/master/Auto/URL%20REJECT.conf',
+      //urlreject: 'https://raw.githubusercontent.com/lhie1/Rules/master/Auto/URL%20REJECT.conf',
       headerrewrite: 'https://raw.githubusercontent.com/lhie1/Rules/master/Auto/Header%20Rewrite.conf',
       hostname: 'https://raw.githubusercontent.com/lhie1/Rules/master/Auto/Hostname.conf',
       mitm: 'https://raw.githubusercontent.com/lhie1/Rules/master/Surge/MITM.conf',
@@ -2450,7 +2450,7 @@ function makeConf(params) {
       } else if (notExistSuffix.length > 0) {
         i.proxyLink += `,${notExistSuffix.join(',')}`
       }
-      return i.proxyLink.replace('http://omgib13x8.bkt.clouddn.com/SSEncrypt.module', 'https://github.com/lhie1/Rules/blob/master/SSEncrypt.module?raw=true')
+      return i.proxyLink.replace('https://github.com/lhie1/Rules/blob/master/SSEncrypt.module?raw=true')
     }).filter((item, idx, self) => {
       let proxyName = item.split(/=/)[0].trim()
       return self.findIndex(i => {
@@ -2562,11 +2562,11 @@ function makeConf(params) {
         let autoNewPrefix = 'https://raw.githubusercontent.com/lhie1/Rules/master/Surge3'
         v[1] = `RULE-SET,SYSTEM,DIRECT\nRULE-SET,${autoNewPrefix}/Apple.list,🍎 Only`
         v[2] = ads ? `RULE-SET,${autoNewPrefix}/Reject.list,REJECT` : ''
-        v[3] = `RULE-SET,${autoNewPrefix}/AsianTV.list,🍂 Domestic\nRULE-SET,${autoNewPrefix}/GlobalTV.list,🍃 Proxy\nRULE-SET,${autoNewPrefix}/Proxy.list,🍃 Proxy`
+        v[3] = `RULE-SET,${autoNewPrefix}/Media/Bilibili.list,🍂 Domestic\nRULE-SET,${autoNewPrefix}/Media/iQiyi.list,🍂 Domestic\nRULE-SET,${autoNewPrefix}/Media/Letv.list,🍂 Domestic\nRULE-SET,${autoNewPrefix}/Media/MOO.list,🍂 Domestic\nRULE-SET,${autoNewPrefix}/Media/Tencent%20Video.list,🍂 Domestic\nRULE-SET,${autoNewPrefix}/Media/Youku.list,🍂 Domestic\n\nRULE-SET,${autoNewPrefix}/Media/ABC.list,🍃 Proxy\nRULE-SET,${autoNewPrefix}/Media/Abema%20TV.list,🍃 Proxy\nRULE-SET,${autoNewPrefix}/Media/Amazon.list,🍃 Proxy\nRULE-SET,${autoNewPrefix}/Media/Apple%20News.list,🍃 Proxy\nRULE-SET,${autoNewPrefix}/Media/Apple%20TV.list,🍃 Proxy\nRULE-SET,${autoNewPrefix}/Media/Bahamut.list,🍃 Proxy\nRULE-SET,${autoNewPrefix}/Media/BBC%20iPlayer.list,🍃 Proxy\nRULE-SET,${autoNewPrefix}/Media/DAZN.list,🍃 Proxy\nRULE-SET,${autoNewPrefix}/Media/Disney%20Plus.list,🍃 Proxy\nRULE-SET,${autoNewPrefix}/Media/encoreTVB.list,🍃 Proxy\nRULE-SET,${autoNewPrefix}/Media/Fox%20Now.list,🍃 Proxy\nRULE-SET,${autoNewPrefix}/Media/Fox%2B.list,🍃 Proxy\nRULE-SET,${autoNewPrefix}/Media/HBO.list,🍃 Proxy\nRULE-SET,${autoNewPrefix}/Media/Hulu%20Japan.list,🍃 Proxy\nRULE-SET,${autoNewPrefix}/Media/Hulu.list,🍃 Proxy\nRULE-SET,${autoNewPrefix}/Media/Japonx.list,🍃 Proxy\nRULE-SET,${autoNewPrefix}/Media/JOOX.list,🍃 Proxy\nRULE-SET,${autoNewPrefix}/Media/KKBOX.list,🍃 Proxy\nRULE-SET,${autoNewPrefix}/Media/Line%20TV.list,🍃 Proxy\nRULE-SET,${autoNewPrefix}/Media/myTV%20SUPER.list,🍃 Proxy\nRULE-SET,${autoNewPrefix}/Media/Pandora.list,🍃 Proxy\nRULE-SET,${autoNewPrefix}/Media/PBS.list,🍃 Proxy\nRULE-SET,${autoNewPrefix}/Media/Pornhub.list,🍃 Proxy\nRULE-SET,${autoNewPrefix}/Media/Soundcloud.list,🍃 Proxy\nRULE-SET,${autoNewPrefix}/Media/ViuTV.list,🍃 Proxy\nRULE-SET,${autoNewPrefix}/Media/YouTube%20Music.list,🍃 Proxy\nRULE-SET,${autoNewPrefix}/Media/YouTube.list,🍃 Proxy\n\nRULE-SET,${autoNewPrefix}/Proxy.list,🍃 Proxy`
         v[4] = `RULE-SET,${autoNewPrefix}/Domestic.list,🍂 Domestic\nRULE-SET,LAN,DIRECT`
       }
 
-      rules += `\n${v[1]}\n${v[2].replace(/REJECT/g, surge2 || isQuan ? "REJECT" : "REJECT-TINYGIF")}\n${v[3]}\n${v[4]}\n`
+      rules += `\n${v[1]}\n${v[2].replace(/REJECT/g, surge2 || isQuan ? "REJECT" : "🈲AdBlock")}\n${v[3]}\n${v[4]}\n`
       host = v[5]
       urlRewrite += v[6]
       urlReject += v[7]
@@ -2661,7 +2661,7 @@ function makeConf(params) {
         let proxyList = proxies.split(/\n/);
         let res = proxyList.map(proxy => {
           if (/=\s*shadowsocksr/.test(proxy)) {
-            return proxy.replace(/=\s*shadowsocksr/g, '= custom').replace(/"/g, '').replace(/,\s*(protocol|protocol_param|obfs|obfs_param)[^,$]+/g, '') + ', https://github.com/lhie1/Rules/blob/master/SSEncrypt.module?raw=true'
+            return proxy.replace(/=\s*shadowsocksr/g, '= ss').replace(/"/g, '').replace(/\s*(none|aes|rc4|salsa20|chacha20)[^,$]+/g, 'encrypt-method=$&').replace(/\wenwenai2/g, 'password=$&').replace(/,\s*(protocol|protocol_param|obfs|obfs_param)[^,$]+/g, '')
           } else {
             return proxy
           }
