@@ -2660,7 +2660,7 @@ function makeConf(params) {
         let proxyList = proxies.split(/\n/);
         let res = proxyList.map(proxy => {
           if (/=\s*custom/.test(proxy)) {
-            return proxy.replace(/=\s*custom/g, '= ss').replace(/\s*(none|aes|rc4|salsa20|chacha20)[^,$]+/g, 'encrypt-method=$&').replace(/\wenwenai2/g, 'password=$&').replace(/,\s*(https)[^]+/g, '')
+            return proxy.replace(/=\s*custom/g, '= ss').replace(/\s*(none|aes|rc4|salsa20|chacha20)[^,$]+/g, 'encrypt-method=$&').replace(/\wenwenai2/g, 'password=$&').replace(/,\s*(http|ftp|https):\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&:/~\+#]*[\w\-\@?^=%&/~\+#])?/g, '')
           }
           else if (/=\s*vmess/ && /obfs=ws/.test(proxy)) {
               return proxy.replace(/"/g, '').replace(/\s*(none|aes|rc4|salsa20|chacha20)[^,$]+,/g, 'username=').replace(/(group=)[^]+/g, ' ws=true, ws-path= /')
