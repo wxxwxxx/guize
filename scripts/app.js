@@ -2666,7 +2666,7 @@ function makeConf(params) {
               return proxy.replace(/"/g, '').replace(/\s*(none|aes|rc4|salsa20|chacha20)[^,$]+,/g, 'username=').replace(/(group=)[^]+/g, ' ws=true, ws-path= /')
           }
           else if (/=\s*vmess/.test(proxy)) {
-              return proxy.replace(/"/g, '').replace(/\s*(none|aes|rc4|salsa20|chacha20)[^,$]+,/g, 'username=').replace(/(group=)[^]+/g, '')
+              return proxy.replace(/"/g, '').replace(/\s*(none|aes|rc4|salsa20|chacha20)[^,$]+,/g, 'username=').replace(/(,group=)[^]+/g, '')
           }
           else {
               return proxy
