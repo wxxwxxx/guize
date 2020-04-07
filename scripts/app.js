@@ -2661,7 +2661,7 @@ function makeConf(params) {
         let res = proxyList.map(proxy => {
           if (/=\s*shadowsocksr/.test(proxy)) {
               //return proxy.replace(/=\s*shadowsocksr/g, '= ss').replace(/"/g, '').replace(/\s*(none|aes|rc4|salsa20|chacha20)[^,$]+/g, 'encrypt-method=$&').replace(/\wenwenai2/g, 'password=$&').replace(/,\s*(protocol|protocol_param|obfs|obfs_param)[^,$]+/g, '')
-              return proxy.replace(/=\s*shadowsocksr/g, '= ss').replace(/"/g, '').replace(/\s*(none|aes|rc4|salsa20|chacha20)[^,$]+/g, 'encrypt-method=$&').replace(/\wenwenai2/g, 'password=$&').replace(/,\s*https://[^]+/g, '')
+              return proxy.replace(/=\s*shadowsocksr/g, '= ss').replace(/"/g, '').replace(/\s*(none|aes|rc4|salsa20|chacha20)[^,$]+/g, 'encrypt-method=$&').replace(/\wenwenai2/g, 'password=$&').replace(/,\s*(https://)[^]+/g, '')
           }
           else if (/=\s*vmess/ && /obfs=ws/.test(proxy)) {
               return proxy.replace(/"/g, '').replace(/\s*(none|aes|rc4|salsa20|chacha20)[^,$]+,/g, 'username=').replace(/(group=)[^]+/g, ' ws=true, ws-path= /')
