@@ -2663,9 +2663,8 @@ function makeConf(params) {
               return proxy.replace(/=\s*shadowsocksr/g, '= ss').replace(/"/g, '').replace(/\s*(none|aes|rc4|salsa20|chacha20)[^,$]+/g, 'encrypt-method=$&').replace(/\wenwenai2/g, 'password=$&').replace(/,\s*(protocol|protocol_param|obfs|obfs_param)[^,$]+/g, '')
           }
           else if (/=\s*custom/.test(proxy)) {
-            return proxy.replace(/=\s*custom/g, '= ss').replace(/"/g, '').replace(/\s*(none|aes|rc4|salsa20|chacha20)[^,$]+/g, 'encrypt-method=$&').replace(/\wenwenai2/g, 'password=$&').replace(/,\s*(https|protocol|protocol_param|obfs|obfs_param)[^,$]+/g, '')
+            return proxy.replace(/=\s*custom/g, '= ss').replace(/"/g, '').replace(/\s*(none|aes|rc4|salsa20|chacha20)[^,$]+/g, 'encrypt-method=$&').replace(/\wenwenai2/g, 'password=$&').replace(/,\s*[https://github.com/lhie1/Rules/blob/master/SSEncrypt.module?raw=true]/g, '')
           }
-
           else if (/=\s*vmess/ && /obfs=ws/.test(proxy)) {
               return proxy.replace(/"/g, '').replace(/\s*(none|aes|rc4|salsa20|chacha20)[^,$]+,/g, 'username=').replace(/(group=)[^]+/g, ' ws=true, ws-path= /')
           }
