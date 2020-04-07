@@ -2664,7 +2664,10 @@ function makeConf(params) {
           }
           else if (/=\s*vmess/ && /obfs=ws/.test(proxy)) {
               return proxy.replace(/"/g, '').replace(/\s*(none|aes|rc4|salsa20|chacha20)[^,$]+,/g, 'username=').replace(/(group=)[^]+/g, ' ws=true, ws-path= /')
-               }
+          }
+          else if (/=\s*vmess/.test(proxy)) {
+              return proxy.replace(/"/g, '').replace(/\s*(none|aes|rc4|salsa20|chacha20)[^,$]+,/g, 'username=').replace(/(group=)[^]+/g, '')
+          }
           else {
               return proxy
                }
