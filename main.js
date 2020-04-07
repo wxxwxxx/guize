@@ -44,7 +44,7 @@ updateUtil.getLatestVersion({
     handler: version => {
         if (updateUtil.needUpdate(version, updateUtil.getCurVersion())) {
             $http.get({
-                url: 'https://github.com/wxxwxxx/guize/blob/master/updateLog.md' + '?t=' + new Date().getTime(),
+                url: 'https://raw.githubusercontent.com/Fndroid/jsbox_script/master/Rules-lhie1/updateLog.md' + '?t=' + new Date().getTime(),
                 handler: resp => {
                     updateUtil.updateScript(version)
                 }
