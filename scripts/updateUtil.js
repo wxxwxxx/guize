@@ -5,13 +5,13 @@ function getCurVersion() {
 
 function needRestart() {
     return $http.get({
-        url: 'https://raw.githubusercontent.com/Fndroid/jsbox_script/master/Rules-lhie1/restart.fndroid'
+        url: 'https://raw.githubusercontent.com/wxxwxxx/guize/master/restart.fndroid'
     })
 }
 
 function getLatestVersion(params) {
     $http.get({
-        url: 'https://raw.githubusercontent.com/Fndroid/jsbox_script/master/Rules-lhie1/version.fndroid' + '?t=' + new Date().getTime(),
+        url: 'https://raw.githubusercontent.com/wxxwxxx/guize/master/version.fndroid' + '?t=' + new Date().getTime(),
         handler: res => {
             params.handler(res.data)
         }
@@ -19,7 +19,7 @@ function getLatestVersion(params) {
 }
 
 function updateScript(version) {
-    let url = 'https://raw.githubusercontent.com/Fndroid/jsbox_script/master/Rules-lhie1/.output/Rules-lhie1.box' + '?t=' + new Date().getTime()
+    let url = 'https://raw.githubusercontent.com/wxxwxxx/guize/master/.output/Awen.zip' + '?t=' + new Date().getTime()
     const scriptName = $addin.current.name
     let downloadBox = $http.download({
         url: url
