@@ -2660,8 +2660,11 @@ function makeConf(params) {
         let proxyList = proxies.split(/\n/);
         let res = proxyList.map(proxy => {
           if (/=\s*custom/.test(proxy)) {
-            return proxy.replace(/=\s*custom/g, '= ss').replace(/\s*(none|aes|rc4|salsa20|chacha20)[^,$]+/g, 'encrypt-method=$&').replace(/\wenwenai2/g, 'password=$&').replace(/,\s*(http|ftp|https):\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&:/~\+#]*[\w\-\@?^=%&/~\+#])?/g, '')
+            return proxy.replace(/=\s*custom/g, '= ss').replace(/\s*(none|aes|rc4|salsa20|chacha20)[^,$]+/g, 'encrypt-method=$&').replace(/\wenwenai2/g, 'password=$&').replace(/\, undefined/g, '')
           }
+          else if (/=\s*shadowsocksr/.test(proxy)) {
+            return proxy.replace(/=\s*shadowsocksr/g, '= ss').replace(/"/g, '').replace(/\s*(none|aes|rc4|salsa20|chacha20)[^,$]+/g, 'encrypt-method=$&').replace(/\wenwenai2/g, 'password=$&').replace(/,\s*(protocol|protocol_param|obfs|obfs_param)[^,$]+/g, '')
+          }          
           else if (/=\s*vmess/ && /obfs=ws/.test(proxy)) {
               return proxy.replace(/"/g, '').replace(/\s*(none|aes|rc4|salsa20|chacha20)[^,$]+,/g, 'username=').replace(/(group=)[^]+/g, ' ws=true, ws-path= /')
           }
@@ -2850,7 +2853,7 @@ function makeConf(params) {
         console.log(serverEditorData)
         prototype += genQuanPart('SOURCE', serverEditorData.filter(i => {
           // let isSSR = i.rows.find(l => /^.*?=\s*(?=shadowsocksr|vmess)/.test(l.proxyLink))
-          // return isSSR !== undefined
+          // return isSSR !== 
           return i.rows.find(i => i.proxyType > 0)
         }).map(i => {
           return `${i.title}, server, ${i.url}, ${sourceType}, ${i.title}`
