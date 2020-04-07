@@ -2377,8 +2377,7 @@ function makeConf(params) {
   try {
     let pu = {
       prototype: "https://raw.githubusercontent.com/lhie1/Rules/master/Surge/Prototype.conf",
-        apple: 'https://raw.githubusercontent.com/lhie1/Rules/master/Surge/Surge%203/Provider/Apple.list',
-      direct: 'https://raw.githubusercontent.com/lhie1/Rules/master/Auto/DIRECT.conf',
+      apple: 'https://raw.githubusercontent.com/lhie1/Rules/master/Surge/Surge%203/Provider/Apple.list',
       proxy: 'https://raw.githubusercontent.com/lhie1/Rules/master/Auto/PROXY.conf',
       reject: 'https://raw.githubusercontent.com/lhie1/Rules/master/Auto/REJECT.conf',
       testflight: 'https://raw.githubusercontent.com/lhie1/Rules/master/Surge/TestFlight.conf',
@@ -2559,7 +2558,7 @@ function makeConf(params) {
       }
 
       if (testflight && !rulesReplacement) {
-        let autoNewPrefix = 'https://raw.githubusercontent.com/lhie1/Rules/master/Surge3'
+        let autoNewPrefix = 'https://raw.githubusercontent.com/lhie1/Rules/master/Surge/Surge%203/Provider'
         v[1] = `RULE-SET,SYSTEM,DIRECT\nRULE-SET,${autoNewPrefix}/Apple.list,🍎 Only`
         v[2] = ads ? `RULE-SET,${autoNewPrefix}/Reject.list,REJECT` : ''
         v[3] = `RULE-SET,${autoNewPrefix}/Media/Bilibili.list,🍂 Domestic\nRULE-SET,${autoNewPrefix}/Media/iQiyi.list,🍂 Domestic\nRULE-SET,${autoNewPrefix}/Media/Letv.list,🍂 Domestic\nRULE-SET,${autoNewPrefix}/Media/MOO.list,🍂 Domestic\nRULE-SET,${autoNewPrefix}/Media/Tencent%20Video.list,🍂 Domestic\nRULE-SET,${autoNewPrefix}/Media/Youku.list,🍂 Domestic\n\nRULE-SET,${autoNewPrefix}/Media/ABC.list,🍃 Proxy\nRULE-SET,${autoNewPrefix}/Media/Abema%20TV.list,🍃 Proxy\nRULE-SET,${autoNewPrefix}/Media/Amazon.list,🍃 Proxy\nRULE-SET,${autoNewPrefix}/Media/Apple%20News.list,🍃 Proxy\nRULE-SET,${autoNewPrefix}/Media/Apple%20TV.list,🍃 Proxy\nRULE-SET,${autoNewPrefix}/Media/Bahamut.list,🍃 Proxy\nRULE-SET,${autoNewPrefix}/Media/BBC%20iPlayer.list,🍃 Proxy\nRULE-SET,${autoNewPrefix}/Media/DAZN.list,🍃 Proxy\nRULE-SET,${autoNewPrefix}/Media/Disney%20Plus.list,🍃 Proxy\nRULE-SET,${autoNewPrefix}/Media/encoreTVB.list,🍃 Proxy\nRULE-SET,${autoNewPrefix}/Media/Fox%20Now.list,🍃 Proxy\nRULE-SET,${autoNewPrefix}/Media/Fox%2B.list,🍃 Proxy\nRULE-SET,${autoNewPrefix}/Media/HBO.list,🍃 Proxy\nRULE-SET,${autoNewPrefix}/Media/Hulu%20Japan.list,🍃 Proxy\nRULE-SET,${autoNewPrefix}/Media/Hulu.list,🍃 Proxy\nRULE-SET,${autoNewPrefix}/Media/Japonx.list,🍃 Proxy\nRULE-SET,${autoNewPrefix}/Media/JOOX.list,🍃 Proxy\nRULE-SET,${autoNewPrefix}/Media/KKBOX.list,🍃 Proxy\nRULE-SET,${autoNewPrefix}/Media/Line%20TV.list,🍃 Proxy\nRULE-SET,${autoNewPrefix}/Media/myTV%20SUPER.list,🍃 Proxy\nRULE-SET,${autoNewPrefix}/Media/Pandora.list,🍃 Proxy\nRULE-SET,${autoNewPrefix}/Media/PBS.list,🍃 Proxy\nRULE-SET,${autoNewPrefix}/Media/Pornhub.list,🍃 Proxy\nRULE-SET,${autoNewPrefix}/Media/Soundcloud.list,🍃 Proxy\nRULE-SET,${autoNewPrefix}/Media/ViuTV.list,🍃 Proxy\nRULE-SET,${autoNewPrefix}/Media/YouTube%20Music.list,🍃 Proxy\nRULE-SET,${autoNewPrefix}/Media/YouTube.list,🍃 Proxy\n\nRULE-SET,${autoNewPrefix}/Proxy.list,🍃 Proxy`
