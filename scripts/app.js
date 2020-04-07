@@ -2664,6 +2664,12 @@ function makeConf(params) {
           } else {
             return proxy
           }
+          if (/=\s*vmess/.test(proxy)) {
+          proxy.replace(/"/g, '').replace(/\s*(none|aes|rc4|salsa20|chacha20)[^,$]+,/g, 'username=').replace(/(group=)[^]+/g, ' ws=true, ws-path= /')
+          } else {
+           return proxy
+            }
+
         })
         return res.join('\n')
       }
