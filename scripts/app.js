@@ -46,7 +46,7 @@ const btnOffBg = colorUtil.getColor("usualBtnOffBg")
 function renderUI() {
   $ui.render({
     props: {
-      title: "Awen",
+      title: "lhie1规则",
       navBarHidden: true,
       statusBarHidden: colorUtil.getColor("statusBar", true) === 'clear' ? true : false,
       statusBarStyle: colorUtil.getColor("statusBar", true) === '#ffffff' ? 1 : 0,
@@ -89,7 +89,7 @@ function renderUI() {
       }, {
         type: "label",
         props: {
-          text: "lhie1规则",
+          text: "Awen",
           textColor: colorUtil.getColor("navTitleText"),
           font: $font("bold", 25)
         },
