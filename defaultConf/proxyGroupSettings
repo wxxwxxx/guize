@@ -5,6 +5,6 @@
 
 🍎 Only = select,🚀 Direct,Proxy Header
 
-☁️ Others =  select,🚀 Direct,🍃 Proxy
+☁️ Others =  select, 🚀 Direct, 🍃 Proxy
 
-🏃 Auto = url-test,ProxyHeader,url = http://www.gstatic.com/generate_204,interval = 1200
+🏃 Auto = url-test, ProxyHeader, url = http://captive.apple.com, interval = 1200
