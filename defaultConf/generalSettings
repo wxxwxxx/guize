@@ -1,30 +1,98 @@
 [General]
+
 // Auto
+# 日志等级: warning, notify, info, verbose (默认值: notify)
+bypass-system = true
 loglevel = notify
-dns-server = system,1.2.4.8,223.5.5.5,223.6.6.6
-skip-proxy = 127.0.0.1,192.168.0.0/16,10.0.0.0/8,172.16.0.0/12,100.64.0.0/10,17.0.0.0/8,localhost,*.local,*.crashlytics.com
 
-// iOS
-external-controller-access = lhie1@0.0.0.0:6170
+# 强制使用特定的DNS服务器
+dns-server = system, 119.29.29.29, 119.28.28.28, 1.2.4.8
 
+# 跳过某个域名或者IP段
+skip-proxy = 127.0.0.1, 192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12, 100.64.0.0/10, 17.0.0.0/8, localhost, *.local, *.crashlytics.com
+
+# 允许外部控制器访问Surge
+external-controller-access = zz@0.0.0.0:12345
+
+# Surge 作为 HTTP/SOCKS5 代理服务器向 Wi-Fi 网络下的其他设备提供服务器
 allow-wifi-access = true
 
 // macOS
 interface = 0.0.0.0
 socks-interface = 0.0.0.0
+
+# HTTP 代理服务端口 (默认值: 6152)   (Mac版)
 port = 8888
+
+# SOCKS5 代理服务端口 (默认值: 6153) (Mac版)
 socks-port = 8889
 
 enhanced-mode-by-rule = false
 show-error-page-for-reject = true
+tls-provider = default
+use-default-policy-if-wifi-not-primary = false
+
+// iOS
+# HTTP 代理服务端口 (默认值: 6152)   (iOS版)
+wifi-access-http-port = 7891
+
+# SOCKS5 代理服务端口 (默认值: 6152) (iOS版)
+wifi-access-socks5-port = 7892
 
 // Auto
-exclude-simple-hostnames = true
-ipv6 = true
-replica = false
+# 兼容模式：禁用、Proxy with Loopback Address、Proxy Only、TUN Only（0、1、2、3）
+compatibility-mode = 0
 
+# 不包括简单主机名
+exclude-simple-hostnames = true
+
+# 是否启动完整的 IPv6 支持 (默认值: false)
+ipv6 = false
+
+replica = false
+# 是否启动Network.framework (默认值: false)
+network-framework = false
+
+# INTERNET 测试 URL (使用网络诊断功能时访问的 URL)
+internet-test-url = http://www.aliyun.com
+
+# 代理测速 URL (测试代理策略时的 URL)
+proxy-test-url = http://cp.cloudflare.com/generate_204
+
+# 测速超时 (秒)
+test-timeout = 5
+
+# 强制 TCP 连接为 HTTP 连接
+force-http-engine-hosts = api.joybj.com,api.alsend.com,api.whizzone.com,api.4shade.com,btrace.qq.com,log.kuwo.cn,g.koowo.com
+
+# 返回真实 IP
+# always-real-ip = *.srv.nintendo.net, *.stun.playstation.net, xbox.*.microsoft.com, *.xboxlive.com
+
+# 劫持其它 DNS 服务器
+# hijack-dns = 8.8.8.8:53, 8.8.4.4:53
+
+# 绕过特定 IP 范围
+# tun-excluded-routes = 192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12
+
+# 包含特定 IP 范围
+# tun-included-routes = 192.168.1.12/32
+
+
+
+
+#===============================================================================
+
+# 该段定义抓取流量的过滤
 [Replica]
+
+# 隐藏所有发往 *.Apple.com 和 *.icloud.com 的请求（该选项只是在抓取结果中隐藏了请求）
 hide-apple-request = true
+
+# 隐藏Crashlytics请求
 hide-crashlytics-request = true
+
+# 隐藏UDP会话（默认值: false）
 hide-udp = false
+
+# 使用关键词过滤器（默认值: false）
 use-keyword-filter = false
